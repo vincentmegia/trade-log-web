@@ -31,11 +31,18 @@ module.exports = {
                 test: /\.(png|jpg|gif|ico|woff|woff2|ttf|svg|eot)$/,
                 loader: "file?name=assets/[name]-[hash:6].[ext]",
             },
-
-            // Load css files which are required in vendor.ts
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style', 'css')
+                loader: [ExtractTextPlugin.extract('style', 'css'), , 'to-string', 'css']
+            },
+            {
+                test: /\.scss$/,
+                exclude: [/\.global\.scss$/],
+                loaders: ['raw-loader', 'sass-loader']
+            },
+            {
+                test: /\.global\.scss$/,
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     },

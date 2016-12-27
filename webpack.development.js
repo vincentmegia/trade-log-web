@@ -33,23 +33,22 @@ module.exports = {
                 loader: "file?name=assets/[name]-[hash:6].[ext]",
             },
             {
+                test: /\.scss$/,
+                loaders: ['to-string-loader', 'css-loader', 'sass-loader']
+            },
+            {
                 test: /\.css$/,
-                //loaders: [ExtractTextPlugin.extract("style", "css-loader"), "to-string", "css"]
-                // loader: ExtractTextPlugin.extract({
-                //     fallbackLoader: "style-loader",
-                //     loader: "css-loader",
-                // })
-                loaders: ["style-loader", "css-loader"]
+                loaders: [ExtractTextPlugin.extract("style", "css-loader"), "to-string", "css"]
             },
         ]
     },    
     plugins: [
-      new Webpack.ContextReplacementPlugin(
-        // The (\\|\/) piece accounts for path separators in *nix and Windows
-        /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-        root('./src'), // location of your src
-        { }
-      ),
+    //   new Webpack.ContextReplacementPlugin(
+    //     // The (\\|\/) piece accounts for path separators in *nix and Windows
+    //     /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+    //     root('./src'), // location of your src
+    //     { }
+    //   ),
         new ExtractTextPlugin("css/[name]-[hash:8].bundle.css"),
         new CleanWebpackPlugin(
             [

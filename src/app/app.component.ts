@@ -4,8 +4,8 @@ import { Component, ViewEncapsulation} from "@angular/core";
     selector: "tradelog",
     templateUrl: "./app.component.html",
     styleUrls: [
-        // "./global.scss"
-        ],
+         "./global.scss",
+    ],
     encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent { }

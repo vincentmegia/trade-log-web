@@ -8,11 +8,11 @@ import { HeaderComponent } from "./header/header.component";
     imports:
         [
             BrowserModule,
-            //MaterialModule.forRoot()
+            MaterialModule.forRoot()
         ],
   declarations: [
       AppComponent,
-      //HeaderComponent
+      HeaderComponent
   ],
   bootstrap: [ AppComponent ]
 })

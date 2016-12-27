@@ -1,8 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, ViewEncapsulation} from "@angular/core";
 
 @Component({
-    selector: "tl-header",
+    selector: "tl",
     templateUrl: "./header.component.html",
-    styleUrls: ["./header.component.scss"]
+    styleUrls: [
+         "./header.component.scss",
+    ]
 })
-export class HeaderComponent  { }
+
+export class HeaderComponent { }

@@ -5,10 +5,11 @@ var Webpack = require("webpack");
 var Path = require("path");
 
 module.exports = {
+    context: Path.resolve(__dirname, "./src"),
     entry: {
-        "polyfills": "./src/polyfills.ts",
-        "vendor": "./src/vendor.ts",
-        "app": "./src/app/main.ts"
+        "polyfills": "./polyfills.ts",
+        "vendor": "./vendor.ts",
+        "app": "./app/main.ts"
     },
     resolve: {
         extensions: ["", ".ts", ".js", ".json", ".css", ".scss", ".html"]
@@ -22,7 +23,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.ts$/,
-                loaders: ["awesome-typescript-loader", "angular2-template-loader"],
+                loaders: ["awesome-typescript-loader", "angular2-template-loader"]
             },
             {
                 test: /\.html$/,
@@ -33,34 +34,22 @@ module.exports = {
                 loader: "file?name=assets/[name]-[hash:6].[ext]",
             },
             {
-                test: /\.scss$/,
-                loaders: ['to-string-loader', 'css-loader', 'sass-loader']
-            },
-            {
                 test: /\.css$/,
                 loaders: [ExtractTextPlugin.extract("style", "css-loader"), "to-string", "css"]
+                //loader: extractCSS.extract("style", "css?sourceMap")
             },
+            {
+                test: /\.scss$/,
+                //loaders: ["to-string-loader", "css-loader", "sass-loader"]
+                loader: ExtractTextPlugin.extract("style", "css?sourceMap!sass?sourceMap"),
+            }
         ]
     },    
     plugins: [
-    //   new Webpack.ContextReplacementPlugin(
-    //     // The (\\|\/) piece accounts for path separators in *nix and Windows
-    //     /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-    //     root('./src'), // location of your src
-    //     { }
-    //   ),
-        new ExtractTextPlugin("css/[name]-[hash:8].bundle.css"),
-        new CleanWebpackPlugin(
-            [
-                "./dist/scripts/",
-                "./dist/css/",
-                "./dist/assets/",
-                "./dist/app/",
-                "./dist/index.html"
-            ]
-        ),
+        new ExtractTextPlugin("stylesheets/[name]-[hash:8].bundle.css"),
+        new CleanWebpackPlugin(["./dist/"]),
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./index.html",
             inject: "body"
         }),
         new Webpack.ProvidePlugin({

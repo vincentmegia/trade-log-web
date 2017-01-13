@@ -3,6 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { MaterialModule } from "@angular/material";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
+import { SidebarComponent } from "./sidebar/sidebar.component";
 
 @NgModule({
     imports:
@@ -12,7 +13,8 @@ import { HeaderComponent } from "./header/header.component";
         ],
   declarations: [
       AppComponent,
-      HeaderComponent
+      HeaderComponent,
+      SidebarComponent
   ],
   bootstrap: [ AppComponent ]
 })

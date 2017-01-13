@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { MaterialModule } from "@angular/material";
-import { HeaderComponent } from "./header.component";
+import { SidebarComponent } from "./sidebar.component";
 
 @NgModule({
     imports:
@@ -9,7 +9,8 @@ import { HeaderComponent } from "./header.component";
             BrowserModule,
             MaterialModule.forRoot()
         ],
-  declarations: [ HeaderComponent ],
-  bootstrap:    [ HeaderComponent ]
+  declarations: [ SidebarComponent ],
+  bootstrap:    [ SidebarComponent ]
 })
-export class HeaderModule { }
+
+export class SidebarModule { }

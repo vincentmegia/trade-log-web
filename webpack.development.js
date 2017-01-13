@@ -40,8 +40,8 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                //loaders: ["to-string-loader", "css-loader", "sass-loader"]
-                loader: ExtractTextPlugin.extract("style", "css?sourceMap!sass?sourceMap"),
+                loaders: ["to-string-loader", "css-loader", "sass-loader"]
+                //loader: ExtractTextPlugin.extract("style", "css?sourceMap!sass?sourceMap"),
             }
         ]
     },    

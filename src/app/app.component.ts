@@ -5,6 +5,7 @@ import { Component, ViewEncapsulation} from "@angular/core";
     templateUrl: "./app.component.html",
     styleUrls: [
          "./global.scss",
+         "./app.component.scss"
     ],
     encapsulation: ViewEncapsulation.None,
 })
